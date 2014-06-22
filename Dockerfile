@@ -5,9 +5,13 @@ ENV DEBIAN_FRONTEND noninteractive
 # Fix timezone
 RUN ln -sf /usr/share/zoneinfo/CST6CDT /etc/localtime
 
+# Fix a Debianism of the nobody's uid being 65534
+RUN usermod -u 99 nobody
+RUN usermod -g 100 nobody
+
 RUN apt-get update -q
 
-# Install plexWatch Dependencies
+# Install Dependencies
 RUN apt-get install -qy git python
 
 # Checkout CouchPotato from github
@@ -21,4 +25,5 @@ RUN ln -s /config/custom_params.ini /opt/NZBmegasearch/custom_params.ini
 
 EXPOSE 5000
 
+USER nobody
 ENTRYPOINT ["python", "/opt/NZBmegasearch/mega2.py"]
