@@ -2,4 +2,4 @@ This is a Dockerfile setup for nzbmegasearch - http://pillone.github.io/usntssea
 
 To run:
 
-docker run -d --name="nzbmegasearch" -v /path/to/config/file:/config -p 5000:5000 needo/nzbmegasearch
+docker run -d --name="nzbmegasearch" -v /path/to/config/file:/config -v /etc/localtime:/etc/localtime:ro -p 5000:5000 needo/nzbmegasearch
