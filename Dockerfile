@@ -9,10 +9,13 @@ RUN usermod -g 100 nobody
 RUN apt-get update -q
 
 # Install Dependencies
-RUN apt-get install -qy git python
+RUN apt-get install -qy wget python
 
-# Checkout CouchPotato from github
-RUN git clone https://github.com/pillone/usntssearch.git /opt/
+# Install nzbmegasearch v0.46
+RUN mkdir /opt/NZBmegasearch
+RUN wget -P /tmp/ https://github.com/pillone/usntssearch/archive/v0.46.tar.gz
+RUN tar -C /opt/NZBmegasearch -xvf /tmp/v0.46.tar.gz --strip-components 1
+RUN chown nobody:users /opt/NZBmegasearch
 
 # Path to nzbmegasearch's custom_params.ini
 VOLUME /config
