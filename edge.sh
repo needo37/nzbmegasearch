@@ -6,7 +6,7 @@ if [ -z "$EDGE" ]; then
 else
   apt-get install -qy git
   rm -rf /opt/NZBmegasearch
-  git clone https://github.com/pillone/usntssearch.git /opt/NZBmegasearch
+  git clone https://github.com/pillone/usntssearch.git /opt
   ln -s /config/custom_params.ini /opt/NZBmegasearch/custom_params.ini
   chown -R nobody:users /opt/NZBmegasearch
 fi

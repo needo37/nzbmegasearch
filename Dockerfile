@@ -20,7 +20,7 @@ RUN apt-get install -qy wget python
 # Install nzbmegasearch v0.46
 RUN mkdir /opt/NZBmegasearch
 RUN wget -P /tmp/ https://github.com/pillone/usntssearch/archive/v0.46.tar.gz
-RUN tar -C /opt/NZBmegasearch -xvf /tmp/v0.46.tar.gz --strip-components 1
+RUN tar -C /opt -xvf /tmp/v0.46.tar.gz --strip-components 1
 RUN chown nobody:users /opt/NZBmegasearch
 
 # Path to nzbmegasearch's custom_params.ini
