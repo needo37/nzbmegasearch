@@ -5,7 +5,7 @@ if [ -z "$EDGE" ]; then
   echo "Bleeding edge not requested"
 else
   apt-get install -qy git
-  rm -rf /opt/NZBmegasearch
+  rm -rf /opt
   git clone https://github.com/pillone/usntssearch.git /opt
   ln -s /config/custom_params.ini /opt/NZBmegasearch/custom_params.ini
   chown -R nobody:users /opt/NZBmegasearch
